@@ -1,1 +1,56 @@
+<h1><%= @post.title.titleize %></h1>
+<p><%= @post.content %></p>
 
+<div class="post_categories">  
+        <h2>Categories:</h2>
+    </div>
+    <div class="post_categories_list">
+        <ul>
+            <% @post.categories.each do |category| %>
+                <li>
+                    <%= link_to category.name, category_path(category) %>
+                </li>
+            <% end %>
+            <br><br>
+        </ul>
+</div>
+
+<div class="post_comments">  
+        <h2>Comments:</h2>
+    </div>
+    <div class="post_comments_list">
+        <ul>
+            <% @post.comments.each do |comment| %>
+                <li>
+                    <%= link_to comment.content, comment_path(comment) %>
+                </li>
+            <% end %>
+            <br><br>
+        </ul>
+</div>
+
+<div class="user_comments">  
+        <h2>Users:</h2>
+    </div>
+    <div class="user_comments_list">
+        <ul>
+            <% @users.each do |user| %>
+                <li>
+                    <%= user.username %>
+                </li>
+            <% end %>
+            <br><br>
+        </ul>
+</div>
+
+
+
+
+
+
+
+# [X] should display the title (FAILED - 2)
+# [X] should display the content (FAILED - 3)
+# [X] should display the categories (FAILED - 4)
+# [X] should display all of the comments for that post (FAILED - 5)
+# should display a list of unique users who have commented on the post (FAILED - 6)

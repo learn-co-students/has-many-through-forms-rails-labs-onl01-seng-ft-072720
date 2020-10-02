@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
+
+    @users = []
+    @post.comments.each do |comment|
+      @users << comment.user
+     end
+     @users = @users.uniq {|u| u.username}
   end
 
   def index
@@ -12,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    binding.pry
     post = Post.create(post_params)
     redirect_to post
   end

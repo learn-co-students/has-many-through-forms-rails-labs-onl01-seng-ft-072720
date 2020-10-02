@@ -1,0 +1,18 @@
+<h1><%= @category.name %></h1>
+
+<div class="category_posts">
+    <div class="category_posts_title">    
+        <h2>Posts:</h2>
+    </div>
+    <div class="category_posts_list">
+        <ul>
+            <% @category.posts.each do |post| %>
+                <li>
+                    <strong><%= link_to post.title.titleize, post_path(post) %>: </strong><br>
+                    <%= post.content %>
+                </li>
+            <% end %>
+            <br><br>
+        </ul>
+    </div>
+</div>
